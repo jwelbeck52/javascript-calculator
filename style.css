@@ -51,7 +51,7 @@ grid-template-areas: 'clear-btn divide-btn multiply-btn minus-btn'
                      'seven-btn eight-btn nine-btn plus-btn'
                      'four-btn five-btn six-btn plus-btn'
                      'one-btn two-btn three-btn equal-btn'
-                     'zero-btn zero-btn dot-btn equal-btn';
+                     'zero-btn dot-btn ans-btn equal-btn';
 font-size: 5rem;
 
 
@@ -74,6 +74,11 @@ font-size: 5rem;
     grid-area: clear-btn;
     color: white;
     background-color: red;
+}
+
+#ans-btn{
+    grid-area: ans-btn;
+    background-color: yellow;
 }
 
 #divide-btn{

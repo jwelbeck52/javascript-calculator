@@ -28,26 +28,27 @@ buttons.forEach(function(button) {
             
             if (count<1){
                 count++;
-
-                if (button.value=="clear"){
-                    clearCalculator();
-                }
-
-                else if(button.value=="="){
-                    getAnswer(inputExpression);
-                }
-                
-                else{
-                    getValues(button);
-                    
-                    
-                }
-                
-                
-            }
+                getValues(button);
+                setOutput(inputExpression);
+                }   
+            
             // console.log(count);
-            return;
+           
         }
+
+        else if (button.value=="clear"){
+            clearCalculator();
+        }
+
+        else if(button.value=="="){
+            getAnswer(inputExpression);
+        }
+        
+        else if(button.value=="ans"){
+            useAnswer(button);
+            setOutput(inputExpression);
+        }
+
         else{
             getValues(button);
             setOutput(inputExpression);
@@ -66,6 +67,11 @@ function getValues(button){
     console.log("eval: " + inputExpression);
 }
 
+function useAnswer(button){
+    values.push(old_answer);
+    inputExpression = values.join('');
+}
+
 function setOutput(expression){
     if (!expression){
         inputs.innerText = expression;
@@ -80,9 +86,16 @@ function setOutput(expression){
 }
 
 function getAnswer(expression){
-    inputs.innerText = expression;
-    answer.innerText = eval(expression);
-    old_answer = eval(expression);
+    if (!expression){
+        inputs.innerText = expression;
+        answer.innerText = 0;
+    }
+    else {
+        inputs.innerText = expression;
+        answer.innerText = eval(expression);
+        old_answer = eval(expression);
+        values=[];
+    }
 }
 
 
@@ -92,6 +105,7 @@ function clearCalculator(){
      
      values = [];
      inputExpression="";
+     old_answer= 0;
      setOutput(inputExpression);
     //  console.log(values);
     //  console.log(inputExpression);
