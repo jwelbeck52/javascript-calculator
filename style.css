@@ -1,0 +1,9 @@
+* {
+    margin:0;
+}
+
+.container{
+    width:90vw;
+    margin: auto;
+    background-color: blue;
+}
