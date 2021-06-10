@@ -3,7 +3,126 @@
 }
 
 .container{
-    width:90vw;
+    width:100vw;
     margin: auto;
-    background-color: blue;
+    background-color: rgb(0, 204, 255);
+    padding-bottom: 30px;
 }
+
+#title{
+    text-align: center;
+    padding-top: 10px;
+}
+
+.output-box{
+    border: black solid 1px;
+    height: 50px;
+    width: 90%;
+    margin:auto;
+    /* padding: 4px; */
+    /* display: flex; */
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+
+.output{
+    width:100%;
+    display: block;
+    padding: 4px;
+}
+
+#input-keys{
+
+}
+
+.calc-keys-container{
+width: 90%;
+/* border: red solid 1px; */
+margin:auto;
+display: grid;
+grid-template-areas: 'clear-btn divide-btn multiply-btn minus-btn'
+                     'seven-btn eight-btn nine-btn plus-btn'
+                     'four-btn five-btn six-btn plus-btn'
+                     'one-btn two-btn three-btn equal-btn'
+                     'zero-btn zero-btn dot-btn equal-btn';
+font-size: 5rem;
+
+
+}
+
+.calc-keys{
+    padding: 10px;
+    /* border: red solid 1px; */
+    text-align: center;
+    margin: 1%;
+}
+
+#clear-btn{
+    grid-area: clear-btn;
+}
+
+#divide-btn{
+    grid-area: divide-btn;
+}
+
+#multiply-btn{
+    grid-area: multiply-btn;
+}
+
+#minus-btn{
+    grid-area: minus-btn;
+}
+
+#plus-btn{
+    grid-area: plus-btn;
+}
+
+#equal-btn{
+    grid-area: equal-btn;
+}
+
+#dot-btn{
+    grid-area: dot-btn;
+}
+
+#nine-btn{
+    grid-area: nine-btn;
+}
+
+#eight-btn{
+    grid-area: eight-btn;
+}
+
+#seven-btn{
+    grid-area: seven-btn;
+}
+
+#six-btn{
+    grid-area: six-btn;
+}
+
+#five-btn{
+    grid-area: five-btn;
+}
+
+#four-btn{
+    grid-area: four-btn;
+}
+
+#three-btn{
+    grid-area: three-btn;
+}
+
+#two-btn{
+    grid-area: two-btn;
+}
+
+#one-btn{
+    grid-area: one-btn;
+}
+
+#zero-btn{
+    grid-area: zero-btn;
+}
+
