@@ -7,6 +7,7 @@
     margin: auto;
     background-color: rgb(0, 204, 255);
     padding-bottom: 30px;
+    
 }
 
 #title{
@@ -52,7 +53,7 @@ grid-template-areas: 'clear-btn divide-btn multiply-btn minus-btn'
                      'four-btn five-btn six-btn plus-btn'
                      'one-btn two-btn three-btn equal-btn'
                      'zero-btn dot-btn ans-btn equal-btn';
-font-size: 5rem;
+
 
 
 }
@@ -62,6 +63,7 @@ font-size: 5rem;
     /* border: red solid 1px; */
     text-align: center;
     margin: 1%;
+    font-size: 2rem;
 }
 
 .operator-keys{
@@ -74,11 +76,13 @@ font-size: 5rem;
     grid-area: clear-btn;
     color: white;
     background-color: red;
+    border: none;
 }
 
 #ans-btn{
     grid-area: ans-btn;
     background-color: yellow;
+    border: none;
 }
 
 #divide-btn{
