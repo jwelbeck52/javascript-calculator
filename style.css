@@ -31,6 +31,7 @@
     width:100%;
     display: block;
     padding: 4px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #input-keys{
@@ -48,9 +49,9 @@ width: 90%;
 /* border: red solid 1px; */
 margin:auto;
 display: grid;
-grid-template-areas: 'clear-btn divide-btn multiply-btn minus-btn'
+grid-template-areas: 'clear-btn divide-btn multiply-btn bksp-btn'
                      'seven-btn eight-btn nine-btn plus-btn'
-                     'four-btn five-btn six-btn plus-btn'
+                     'four-btn five-btn six-btn minus-btn'
                      'one-btn two-btn three-btn equal-btn'
                      'zero-btn dot-btn ans-btn equal-btn';
 
@@ -79,6 +80,13 @@ grid-template-areas: 'clear-btn divide-btn multiply-btn minus-btn'
     border: none;
 }
 
+#bksp-btn{
+    grid-area: bksp-btn;
+    color: white;
+    background-color:grey;
+    border: none;
+}
+
 #ans-btn{
     grid-area: ans-btn;
     background-color: yellow;
@@ -104,7 +112,7 @@ grid-template-areas: 'clear-btn divide-btn multiply-btn minus-btn'
 #equal-btn{
     grid-area: equal-btn;
     color:white;
-    background-color: orangered;
+    background-color: orange;
     border: none;
 }
 

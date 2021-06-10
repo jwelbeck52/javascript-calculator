@@ -11,6 +11,7 @@ let inputs= document.getElementById('input-keys');
 let values = [];
 let inputExpression="";
 let old_answer = 0;
+const re = /(?:(?:^|[-+_*/])(?:\s*-?\d+(\.\d+)?(?:[eE][+-]?\d+)?\s*))+$/;
 // let clearBtn = document.getElementById('clear-btn').onclick=function() {clearCalculator()};
 // let plusBtn = document.getElementById('plus-btn').onclick=function(){ addnum()};
 
@@ -28,7 +29,7 @@ buttons.forEach(function(button) {
             
             if (count<1){
                 count++;
-                getValues(button);
+                concatValues(button);
                 setOutput(inputExpression);
                 }   
             
@@ -45,29 +46,57 @@ buttons.forEach(function(button) {
         }
         
         else if(button.value=="ans"){
-            useAnswer(button);
+            getoldAnswer();
             setOutput(inputExpression);
         }
 
+        else if(button.value=="bksp"){
+            removeValue(values,inputExpression);
+            setOutput(inputExpression);
+            
+        }
+
         else{
-            getValues(button);
+            concatValues(button);
             setOutput(inputExpression);
             count=0;
         }
     });
   });
 
-// alert(oneBtn);
 
-function getValues(button){
-    console.log(button.value);
+function isValidExpression(expression) {
+    // console.log("%s is valid? %s", s, re.test(s));
+    return re.test(expression);
+  }
+
+function concatValues(button){
+    // console.log(button.value);
     values.push(button.value);
-    console.log("inputs are: " + values);
+    // console.log("inputs are: " + values);
     inputExpression = values.join('');
-    console.log("eval: " + inputExpression);
+    // console.log("eval: " + inputExpression);
 }
 
-function useAnswer(button){
+function removeValue(values,expression){
+    // console.log(isValidExpression(expression));
+    values.pop();
+    // console.log("inputs are: " + values);
+    inputExpression = values.join('');
+    // console.log("eval: " + inputExpression);
+    
+}
+
+function clearCalculator(){
+    values = [];
+    inputExpression="";
+    old_answer= 0;
+    setOutput(inputExpression);
+   //  console.log(values);
+   //  console.log(inputExpression);
+}
+
+function getoldAnswer(){
     values.push(old_answer);
     inputExpression = values.join('');
 }
@@ -86,37 +115,17 @@ function setOutput(expression){
 }
 
 function getAnswer(expression){
-    if (!expression){
-        inputs.innerText = expression;
-        answer.innerText = 0;
+    if(isValidExpression(expression)){
+        if (!expression){
+            inputs.innerText = expression;
+            answer.innerText = 0;
+        }
+        else {
+            inputs.innerText = expression;
+            answer.innerText = eval(expression);
+            old_answer = eval(expression);
+            values=[];
+        }
     }
-    else {
-        inputs.innerText = expression;
-        answer.innerText = eval(expression);
-        old_answer = eval(expression);
-        values=[];
-    }
-}
-
-
-
-function clearCalculator(){
-     
-     
-     values = [];
-     inputExpression="";
-     old_answer= 0;
-     setOutput(inputExpression);
-    //  console.log(values);
-    //  console.log(inputExpression);
-}
-
-function addnum(){
-    inputs.innerText = `${oneBtn} + ${twoBtn}`;
-    answer.innerText = (oneBtn + twoBtn);
-}
-
-
-function test(){
-    alert("test works");
+    
 }
