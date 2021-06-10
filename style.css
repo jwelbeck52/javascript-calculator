@@ -33,7 +33,13 @@
 }
 
 #input-keys{
+    display: block;
+    height: 1rem;
+}
 
+#answer{
+    display: block;
+    height: 1rem;
 }
 
 .calc-keys-container{
