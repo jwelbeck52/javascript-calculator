@@ -64,8 +64,16 @@ font-size: 5rem;
     margin: 1%;
 }
 
+.operator-keys{
+    border: none;
+    color: white;
+    background-color: grey;
+}
+
 #clear-btn{
     grid-area: clear-btn;
+    color: white;
+    background-color: red;
 }
 
 #divide-btn{
@@ -86,6 +94,9 @@ font-size: 5rem;
 
 #equal-btn{
     grid-area: equal-btn;
+    color:white;
+    background-color: orangered;
+    border: none;
 }
 
 #dot-btn{
