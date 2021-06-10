@@ -1,25 +1,100 @@
 window.addEventListener('DOMContentLoaded', (event) => {
-    console.log('loaded');
+    console.log('Document loaded');
 });
 
 
-var oneBtn = parseInt(document.getElementById('one-btn').value);
-var twoBtn = parseInt(document.getElementById('two-btn').value);
+// const oneBtn = parseInt(document.getElementById('one-btn').value);
+// const twoBtn = parseInt(document.getElementById('two-btn').value);
+// const plusBtn = document.getElementById('plus-btn');
+let answer = document.getElementById('answer');
+let inputs= document.getElementById('input-keys');
+let values = [];
+let inputExpression="";
+let old_answer = 0;
+// let clearBtn = document.getElementById('clear-btn').onclick=function() {clearCalculator()};
+// let plusBtn = document.getElementById('plus-btn').onclick=function(){ addnum()};
 
-var buttons = document.querySelectorAll("button");
+let buttons = document.querySelectorAll("button")
 console.log(buttons);
-var plusBtn = document.getElementById('plus-btn');
-var answer = document.getElementById('answer');
-var inputs= document.getElementById('input-keys');
+
+
+// add eventListener to each button
+let count=0;
+
+buttons.forEach(function(button) {
+    button.addEventListener('click', function(){
+        
+        if (button.classList.contains('operator-keys')){
+            
+            if (count<1){
+                count++;
+
+                if (button.value=="clear"){
+                    clearCalculator();
+                }
+
+                else if(button.value=="="){
+                    getAnswer(inputExpression);
+                }
+                
+                else{
+                    getValues(button);
+                    
+                    
+                }
+                
+                
+            }
+            // console.log(count);
+            return;
+        }
+        else{
+            getValues(button);
+            setOutput(inputExpression);
+            count=0;
+        }
+    });
+  });
+
 // alert(oneBtn);
 
+function getValues(button){
+    console.log(button.value);
+    values.push(button.value);
+    console.log("inputs are: " + values);
+    inputExpression = values.join('');
+    console.log("eval: " + inputExpression);
+}
 
-let clearBtn = document.getElementById('clear-btn').onclick=function() {clearCalculator()};
-var plusBtn = document.getElementById('plus-btn').onclick=function(){ addnum()};
+function setOutput(expression){
+    if (!expression){
+        inputs.innerText = expression;
+        answer.innerText = 0;
+    }
+
+    else {
+        inputs.innerText = expression;
+        answer.innerText = old_answer;
+    }
+    
+}
+
+function getAnswer(expression){
+    inputs.innerText = expression;
+    answer.innerText = eval(expression);
+    old_answer = eval(expression);
+}
+
+
+
 function clearCalculator(){
      
-     inputs.innerText =" ";
-     answer.innerText = 0;
+     
+     values = [];
+     inputExpression="";
+     setOutput(inputExpression);
+    //  console.log(values);
+    //  console.log(inputExpression);
 }
 
 function addnum(){
